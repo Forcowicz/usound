@@ -1,0 +1,13 @@
+.form {
+  padding: 5rem;
+  background-color: $color-grey-dark;
+  display: block;
+  width: 50vw;
+
+    &__input {
+      width: 90%;
+      padding: .5rem;
+      border: 2px solid $color-black;
+      border-radius: 2rem;
+    }
+}

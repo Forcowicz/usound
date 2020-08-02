@@ -22,7 +22,7 @@ include_once("includes/classes/Account.php");
       $status = $account->register($un, $pw, $pwv, $em, $emv, $fn, $ln);
 
       if($status === true) {
-        header("Location: index.php");
+        header("Location: index.html");
       } else {
           echo "shit";
       }

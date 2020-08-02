@@ -1,0 +1,46 @@
+.section-about {
+  background-color: $color-grey-light;
+  padding: 25rem 0;
+  margin-top: -20vh;
+}
+
+.section-features {
+  margin-top: -6rem;
+  padding: 20rem 0;
+  background-image: linear-gradient(to right top, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url(../images/site/forest-1.jpg);
+  background-size: cover;
+
+  transform: skewY(-4deg);
+
+    & > * {
+      transform: skewY(4deg);
+    }
+}
+
+.section-plans {
+  background-color: $color-grey-light;
+  padding: 25rem 0 5rem 0;
+  margin-top: -20vh;
+}
+
+.section-partners {
+  padding: 15rem 0;
+  position: relative;
+}
+
+.section-book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+}
+
+.book {
+  background-image: linear-gradient(105deg, rgba($color-white, .85) 0%, rgba($color-white, .85) 50%, transparent 50%), url("../images/book.jpg");
+  background-size: cover;
+  border-radius: .3rem;
+  box-shadow: $default-shadow;
+
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}

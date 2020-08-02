@@ -1,0 +1,85 @@
+@import "../abstracts/variables";
+
+body { /* Wszystko o czcionce */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem; /* Ramka wokół strony */
+}
+
+hr {
+  display: block;
+  margin: 2.5rem;
+  height: 1px;
+  background-color: $color-grey-light;
+  border: none;
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 5rem;
+
+    &--main {
+      display: block;
+      font-size: 6rem;
+      font-weight: 700;
+      letter-spacing: 3rem;
+      transform: translateX(.5rem);
+      animation: moveInLeft 1s ease-in-out;
+    }
+
+    &--sub {
+      display: block;
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 1.6rem;
+      animation: moveInRight 1s ease-in-out;
+    }
+}
+
+.heading-secondary {
+  display: inline-block;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: all .5s;
+
+    &:hover {
+      letter-spacing: .3rem;
+      text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
+    }
+
+    &--alternative {
+      &:hover {
+        letter-spacing: normal;
+        transform: scale(1.02);
+      }
+    }
+}
+
+.heading-tertiary {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-size: 1.4rem;
+  
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+}
+
+.caption {
+  display: inline-block;
+  font-size: 1rem;
+  color: $color-grey-dark;
+}

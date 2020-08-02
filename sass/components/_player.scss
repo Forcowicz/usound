@@ -1,0 +1,71 @@
+.player {
+  display: none;
+
+    &__button {
+      display: inline-block;
+      position: fixed;
+      left: 4rem;
+      bottom: 2rem;
+      padding: 1rem;
+      background-color: $color-white;
+      border: 3px solid $color-primary;
+      border-radius: .5rem;
+      transition: all .20s;
+      cursor: pointer;
+      z-index: 100;
+      box-shadow: $default-shadow;
+
+        &:hover {
+          background-color: $color-primary;
+          border: 3px solid $color-primary;
+          transform: scale(1.15);
+
+            .fa-play {
+              color: $color-white;
+            }
+
+            .fa-pause {
+              color: $color-white;
+            }
+        }
+
+      &:focus {
+        outline: none;
+      }
+
+        .fa-play {
+          color: $color-primary;
+          transition: all .20s;
+        }
+
+        .fa-pause {
+          color: $color-primary;
+          transition: all .20s;
+        }
+    }
+
+    &__show-where {
+      position: fixed;
+      display: none;
+      z-index: 100;
+      bottom: 8.5rem;
+      left: 4.5rem;
+      background-image: linear-gradient(to bottom, $color-primary-light, $color-primary-dark);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 2.5rem rgba($color-white, .6);
+      animation: slide .4s infinite alternate;
+    }
+
+    &__darkness {
+      position: fixed;
+      display: none;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba($color-black, .5);
+      z-index: 99;
+    }
+}

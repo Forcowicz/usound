@@ -1,0 +1,61 @@
+.popup {
+  animation: moveFromBottom .75s ease-out 3s backwards;
+  backface-visibility: hidden;
+  position: fixed;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 50vw;
+  background-color: white;
+  opacity: 0.85;
+  border-bottom: 3px solid $color-primary;
+  box-shadow: $dark-shadow;
+  padding: 1.2rem;
+  z-index: 100;
+  transition: all .5s ease-out;
+    &:hover {
+      border-bottom: 3px solid $color-primary-dark;
+      opacity: 1;
+    }
+
+    &__heading {
+      display: inline-block;
+      font-size: 2rem;
+      color: $color-primary;
+      text-transform: uppercase;
+      transition: all .5s;
+    }
+
+    &:hover &__heading {
+      color: $color-primary-dark;
+    }
+
+
+    &__text {
+      font-size: 1.4rem;
+    }
+
+    &__close {
+      float: right;
+      transition: color .25s;
+      cursor: pointer;
+        &:hover {
+          color: $color-primary-dark;
+        }
+    }
+
+    &:hover .btn-square {
+      &:link, &:visited {
+        color: $color-primary;
+        border: 3px solid $color-primary-dark;
+      }
+      border: 3px solid $color-primary-dark;
+
+        &:hover {
+          color: $color-white;
+          background-color: $color-primary-dark;
+          border: 3px solid $color-primary-dark;
+        }
+    }
+}

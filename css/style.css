@@ -989,6 +989,7 @@ hr {
 }
 .footer__logo {
   width: 12rem;
+  transition: all 0.3s;
 }
 .footer__navigation {
   border-top: 0.1rem solid #777;

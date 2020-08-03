@@ -39,8 +39,11 @@ include("Constants.php");
         $query = "INSERT INTO users(username, firstName, lastName, email, password, date, profilePic) VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')";
 
         $result = mysqli_query($this->conn, $query);
-        if(!$result) exit("Error: " . mysqli_error($this->conn));
-        return $result;
+        if(!$result) {
+            exit("Error: " . mysqli_error($this->conn));
+        } else {
+            exit("Hello");
+        }
     }
 
     private function validateUsername($un) {

@@ -27,8 +27,7 @@
       right: 6.5rem;
       background-image: radial-gradient($color-primary-light, $color-primary-dark);
       z-index: 200;
-      transition: all .5s cubic-bezier(0.7, 0, 0.84, 0);
-      // transform: scale(80);
+      transition: all .5s cubic-bezier(0, 0.55, 0.45, 1);
     }
 
     &__nav {

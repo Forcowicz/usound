@@ -24,6 +24,6 @@ include_once("includes/classes/Account.php");
       if($status === true) {
         header("Location: index.html");
       } else {
-          echo "shit";
+          echo "Something went wrong";
       }
   }

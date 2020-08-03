@@ -1,4 +1,18 @@
 @charset "UTF-8";
+/*
+0-600px: Phone
+600-900px: Tablet portrait
+900-1200px: Tablet landscape
+1200-1800px: Normal styles (Desktop)
+1800+px: Big Desktop/TV
+
+$breakpoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+1em = 16px
+ */
 *, *::after, *::before {
   margin: 0;
   padding: 0;
@@ -7,7 +21,21 @@
 
 html {
   font-size: 62.5%;
-  /* Root font size */
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
@@ -429,15 +457,15 @@ hr {
   background-blend-mode: screen;
 }
 .card__picture--1 {
-  background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../images/site/plans-image-1.jpg);
+  background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../images/site/plans-image-1.png);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 .card__picture--2 {
-  background-image: linear-gradient(to right bottom, #7ed56f, #27b485), url(../images/site/plans-image-2.jpg);
+  background-image: linear-gradient(to right bottom, #7ed56f, #27b485), url(../images/site/plans-image-2.png);
   clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
 }
 .card__picture--3 {
-  background-image: linear-gradient(to right top, #2998ff, #5643fa), url(../images/site/plans-image-3.jpg);
+  background-image: linear-gradient(to right top, #2998ff, #5643fa), url(../images/site/plans-image-3.png);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 90%);
 }
 .card__heading {
@@ -881,7 +909,7 @@ hr {
 .section-features {
   margin-top: -6rem;
   padding: 20rem 0;
-  background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.8), rgba(39, 180, 133, 0.8)), url(../images/site/forest-1.jpg);
+  background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.8), rgba(39, 180, 133, 0.8)), url(../images/site/forest-1.png);
   background-size: cover;
   transform: skewY(-4deg);
 }

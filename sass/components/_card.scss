@@ -50,17 +50,17 @@
     background-blend-mode: screen;
 
       &--1 {
-        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../images/site/plans-image-1.jpg);
+        background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../images/site/plans-image-1.png);
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
       }
 
       &--2 {
-        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../images/site/plans-image-2.jpg);
+        background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../images/site/plans-image-2.png);
         clip-path: polygon(100% 0, 0 0, 0 90%, 50% 100%, 100% 90%);
       }
 
       &--3 {
-        background-image: linear-gradient(to right top, $color-tertiary-light, $color-tertiary-dark), url(../images/site/plans-image-3.jpg);
+        background-image: linear-gradient(to right top, $color-tertiary-light, $color-tertiary-dark), url(../images/site/plans-image-3.png);
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 90%);
       }
   }

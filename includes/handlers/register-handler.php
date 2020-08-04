@@ -1,6 +1,4 @@
 <?php
-include_once("includes/functions.php");
-include_once("includes/classes/Account.php");
 
   if (isset($_POST['register'])) {
     $un = $_POST['registerUsername'];
@@ -19,11 +17,12 @@ include_once("includes/classes/Account.php");
       $fn = sanitizeInputNames($fn);
       $ln = sanitizeInputNames($ln);
 
-      $status = $account->register($un, $pw, $pwv, $em, $emv, $fn, $ln);
+      $status = $account->register($un, $fn, $ln, $em, $emv, $pw, $pwv);
 
-      if($status === true) {
-        header("Location: index.html");
+      if($status) {
+          header("Location: index.html");
       } else {
-          echo "Something went wrong";
+          echo "Something went wrong! Registration temporaly disabled!";
       }
+
   }

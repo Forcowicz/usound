@@ -15,6 +15,11 @@
       z-index: 100;
       box-shadow: $default-shadow;
 
+        @include respond(tab-port) {
+          left: 1.5rem;
+          bottom: 1.5rem;
+        }
+
         &:hover {
           background-color: $color-primary;
           border: 3px solid $color-primary;
@@ -56,6 +61,11 @@
       color: transparent;
       text-shadow: 0 0 2.5rem rgba($color-white, .6);
       animation: slide .4s infinite alternate;
+
+        @include respond(tab-port) {
+          bottom: 8rem;
+          left: 2.5rem;
+        }
     }
 
     &__darkness {

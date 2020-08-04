@@ -3,16 +3,21 @@ ob_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
 include("includes/config.php");
+include("includes/functions.php");
 include("includes/classes/Account.php");
-  $account = new Account($conn);
+include_once("includes/classes/Constants.php");
+
+$account = new Account($con);
 
 include("includes/handlers/register-handler.php");
 include("includes/handlers/login-handler.php");
+
 ?>
 
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
@@ -51,37 +56,37 @@ include("includes/handlers/login-handler.php");
                     <div class="u-center-text">
                         <h2 class="heading-secondary heading-secondary--alternative">Zarejestruj się</h2><br>
                     </div>
-                    <?php echo $account->getError(Constants::$usernameBadLength); ?>
+                    <?php echo $account->getError(Constants::$usernameLength); ?>
                     <label for="registerUsername" class="form__label">Nazwa użytkownika</label>
                     <input type="text" id="registerUsername" class="form__input" name="registerUsername" placeholder="Wpisz wybraną nazwę użytkownika" value="<?php getInputValue('registerUsername'); ?>" required autocomplete="off">
 
-                    <?php echo $account->getError(Constants::$passwordBadLenght); ?>
-                    <?php echo $account->getError(Constants::$passwordInvalidChars); ?>
+                    <?php echo $account->getError(Constants::$passwordLength); ?>
+                    <?php echo $account->getError(Constants::$passwordInvalid); ?>
                     <label for="registerPassword" class="form__label">Hasło</label>
                     <input type="password" id="registerPassword" class="form__input" name="registerPassword" placeholder="Wpisz hasło" value="<?php getInputValue('registerPassword'); ?>" required autocomplete="off">
 
-                    <?php echo $account->getError(Constants::$passwordsDoNotMatch); ?>
+                    <?php echo $account->getError(Constants::$passwordsNotMatch); ?>
                     <label for="registerPasswordValidate" class="form__label">Powtórz hasło</label>
                     <input type="password" id="registerPasswordValidate" class="form__input" name="registerPasswordValidate" placeholder="Powórz hasło" value="<?php getInputValue('registerPasswordValidate'); ?>" autocomplete="off" required>
 
 
-                    <?php echo $account->getError(Constants::$emailInvalidChars); ?>
+                    <?php echo $account->getError(Constants::$emailInvalid); ?>
                     <label for="registerEmail" class="form__label">E-mail</label>
                     <input type="email" id="registerEmail" class="form__input" name="registerEmail" placeholder="Wpisz swój adres e-mail" value="<?php getInputValue('registerEmail'); ?>" required autocomplete="off">
 
-                    <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+                    <?php echo $account->getError(Constants::$emailsNotMatch); ?>
                     <label for="registerEmailValidate" class="form__label">Powtórz e-mail</label>
                     <input type="email" id="registerEmailValidate" class="form__input" name="registerEmailValidate" placeholder="Powtórz e-mail" value="<?php getInputValue('registerEmailValidate'); ?>" required autocomplete="off">
 
                     <div class="row row--small-margin">
                         <div class="col-1-of-2">
-                            <?php echo $account->getError(Constants::$firstNameBadLength); ?>
+                            <?php echo $account->getError(Constants::$firstNameLength); ?>
                             <label for="registerFirstName" class="form__label">Imię</label>
                             <input type="text" id="registerFirstName" class="form__input" name="registerFirstName" placeholder="Wpisz swoje imię" value="<?php getInputValue('registerFirstName'); ?>" required autocomplete="off">
                         </div>
 
                         <div class="col-1-of-2">
-                            <?php echo $account->getError(Constants::$lastNameBadLength); ?>
+                            <?php echo $account->getError(Constants::$lastNameLength); ?>
                             <label for="registerLastName" class="form__label">Nazwisko</label>
                             <input type="text" name="registerLastName" class="form__input" id="registerLastName" placeholder="Wpisz swoje nazwisko" value="<?php getInputValue('registerLastName'); ?>" required autocomplete="off">
                         </div>

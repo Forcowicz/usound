@@ -1,92 +1,96 @@
 <?php
-include("Constants.php");
+    class Account {
 
-  class Account {
+        private $con;
+        private $errorArray;
 
-    private $conn;
-    private $errorArray;
+        public function __construct($con) { // Wywołana kiedy tylko zostanie utworzona instacja
+            $this->con = $con;
+            $this->errorArray = [];
+        }
 
-    public function __construct($conn) {
-        $this->conn = $conn;
-        $this->errorArray = [];
-    }
+        public function register($un, $fn, $ln, $em, $emv, $pw, $pwv) {
+            $this->validateUsername($un);
+            $this->validateFirstName($fn);
+            $this->validateLastName($ln);
+            $this->validateEmails($em, $emv);
+            $this->validatePassword($pw, $pwv);
 
-    public function register($un, $pw, $pwv, $em, $emv, $fn, $ln) {
-      $this->validateUsername($un);
-      $this->validatePassword($pw, $pwv);
-      $this->validateEmails($em, $emv);
-      $this->validateFirstName($fn);
-      $this->validateLastName($ln);
+            if(empty($this->errorArray)) {
+                return $this->insertUser($un, $fn, $ln, $em, $pw);
+            } else {
+                return false;
+            }
+        }
 
-      if(empty($this->errorArray)) {
-          return $this->insertUser($un, $pw, $fn, $ln, $em);
-      } else {
-        return false;
-      }
-    }
+        public function getError($error) {
+            if(!in_array($error, $this->errorArray)) {
+                $error = "";
+            }
+            return "<span class='errorMessage'>$error</span>";
+        }
 
-    public function getError($err) {
-      if(!in_array($err, $this->errorArray)) {
-        $err = "";
-      }
-      return "<span class='error_message'>$err</span>";    
-    }
+        private function insertUser($un, $fn, $ln, $em, $pw) {
+            $encryptedPw = md5($pw);
+            $profilePic = "/images/profile-pics/placeholder.png";
+            $dateNow = date("Y-m-d");
 
-    private function insertUser($un, $pw, $fn, $ln, $em) {
-        $encryptedPw = md5($pw);
-        $profilePic = "images/profile-pics/placeholder.png";
-        $date = date("Y-m-d");
-        $query = "INSERT INTO users(username, firstName, lastName, email, password, date, profilePic) VALUES ('$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')";
+            $query = "INSERT INTO users (username, firstName, lastName, email, date, profilePic, password) VALUES ('$un', '$fn', '$ln', '$em', '$dateNow', '$profilePic', '$encryptedPw')";
+            $result = mysqli_query($this->con, $query);
+            return $result;
+        }
 
-        $result = mysqli_query($this->conn, $query);
-        if(!$result) {
-            exit("Error: " . mysqli_error($this->conn));
-        } else {
-            exit("Hello");
+        private function validateUsername($un) {
+            if(strlen($un  >= 25 || strlen($un) <= 3)) {
+                array_push($this->errorArray, "Nazwa użytkownika musi być pomiędzy 3 a 25 znakami!");
+                return;
+            }
+
+            // Check if is in the database
+        }
+
+        private function validateFirstName($fn) {
+            if(strlen($fn) >= 40 || strlen($fn) <= 3) {
+                array_push($this->errorArray, "Twoje imię musi mieć od 3 do 40 znaków!");
+                return;
+            }
+        }
+
+        private function validateLastName($ln) {
+            if(strlen($ln) >= 40 || strlen($ln) <= 3) {
+                array_push($this->errorArray, "Twoje nazwisko musi mieć od 3 do 40 znaków!");
+                return;
+            }
+        }
+
+        private function validateEmails($em, $emv) {
+            if($em !== $emv) {
+                array_push($this->errorArray, "Wpisane adresy e-mail nie są jednakowe!");
+                return;
+            }
+
+            if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
+                array_push($this->errorArray, "Wpisany adres e-mail nie jest prawidłowy!");
+                return;
+            }
+
+            // Check if email hasn't arleady been used
+        }
+
+        private function validatePassword($pw, $pwv) {
+            if($pw !== $pwv) {
+                array_push($this->errorArray, "Wpisane hasła nie są jednakowe!");
+                return;
+            }
+
+            if(preg_match("/[^A-Za-z0-9]/", $pw)) {
+                array_push($this->errorArray, "Twoje hasło zawiera niedozwolone znaki!");
+                return;
+            }
+
+            if(strlen($pw) >= 32 || strlen($pw) <= 8) {
+                array_push($this->errorArray, "Twoje hasło musi mieć od 8 do 32 znaków!");
+                return;
+            }
         }
     }
-
-    private function validateUsername($un) {
-      if(strlen($un) > 16 || strlen($un) < 3) {
-        array_push($this->errorArray, Constants::$usernameBadLength); // :: oznacza, że powoływana jest zmienna static, a nie instancja
-        return;
-      }
-    }
-
-    private function validatePassword($pw, $pwv) {
-      if($pw !== $pwv) {
-        array_push($this->errorArray, Constants::$passwordsDoNotMatch);
-        return;
-      } else if(preg_match('/[^]A-Za-z0-9]/', $pw)) {
-        array_push($this->errorArray, Constants::$passwordInvalidChars);
-        return;
-      } else if(strlen($pw) < 8 || strlen($pw) > 32) {
-        array_push($this->errorArray, Constants::$passwordsDoNotMatch);
-        return;
-      }
-    }
-
-    private function validateFirstName($fn) {
-      if(strlen($fn) < 2 || strlen($fn) > 32) {
-        array_push($this->errorArray, Constants::$firstNameBadLength);
-        return;
-      }
-    }
-
-    private function validateLastName($ln) {
-      if (strlen($ln) < 2 || strlen($ln) > 32) {
-        array_push($this->errorArray, Constants::$lastNameBadLength);
-        return;
-      }
-    }
-
-    private function validateEmails($em, $emv) {
-      if($em !== $emv) {
-        array_push($this->errorArray, Constants::$emailsDoNotMatch);
-        return;
-      } else if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
-        array_push($this->errorArray, Constants::$emailInvalidChars);
-        return;
-      }
-    }
-  }

@@ -2,8 +2,17 @@
   max-width: $grid-width; // Jeżeli nie ma 1140px na ekranie, to wypełni 100% miejsca, które ma
   margin: 0 auto; // Wyśrodkowanie
 
+    @include respond(tab-port) {
+      max-width: 50rem;
+      padding: 0 3rem;
+    }
+
     &:not(:last-child) { // Wybiera wszystko, oprócz last child
       margin-bottom: $gutter-vertical;
+
+        @include respond(tab-port) {
+          margin-bottom: $gutter-vertical-small;
+        }
     }
 
     &--small-margin {
@@ -19,6 +28,15 @@
 
         &:not(:last-child) {
           margin-right: $gutter-horizontal;
+
+            @include respond(tab-port) {
+              margin-right: 0;
+              margin-bottom: $gutter-vertical-small;
+            }
+        }
+
+        @include respond(tab-port) {
+          width: 100% !important;
         }
     }
 

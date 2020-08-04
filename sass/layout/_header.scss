@@ -9,6 +9,10 @@
    border-radius: 2rem 2rem 0 0;
    position: relative;
 
+    @include respond(tab-port) {
+      border-radius: 0;
+    }
+
     &__logo-box {
       position: absolute; 
       left: 4rem;

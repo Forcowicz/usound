@@ -27,6 +27,7 @@
       opacity: 0;
       transform: translate(-50%, -50%) scale(.5);
       transition: all .5s ease-in;
+      text-align: center;
     }
 
     &__img {
@@ -37,6 +38,11 @@
     &__left {
       width: 33.33%;
       display: table-cell; // Przez to zarówno left i right będą mieć tą samą wysokość
+
+        @include respond(tab-port) {
+          width: 0;
+          display: none;
+        }
     }
 
     &__right {

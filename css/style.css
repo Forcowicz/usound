@@ -1081,6 +1081,7 @@ hr {
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.5);
   transition: all 0.5s ease-in;
+  text-align: center;
 }
 .popup2__img {
   display: block;
@@ -1089,6 +1090,12 @@ hr {
 .popup2__left {
   width: 33.33%;
   display: table-cell;
+}
+@media (max-width: 56.25em) {
+  .popup2__left {
+    width: 0;
+    display: none;
+  }
 }
 .popup2__right {
   width: 66.67%;

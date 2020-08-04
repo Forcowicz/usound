@@ -1103,6 +1103,11 @@ hr {
   vertical-align: middle;
   padding: 3rem 5rem;
 }
+@media (max-width: 37.5em) {
+  .popup2__right {
+    padding: 1rem 2rem;
+  }
+}
 .popup2__text {
   font-size: 1.4rem;
   margin-bottom: 4rem;
@@ -1113,6 +1118,14 @@ hr {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+@media (max-width: 37.5em) {
+  .popup2__text {
+    font-size: 1.2rem;
+    column-count: unset;
+    column-gap: unset;
+    column-rule: unset;
+  }
 }
 .popup2:target .popup2__content {
   opacity: 1;

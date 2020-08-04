@@ -50,6 +50,10 @@
       display: table-cell;
       vertical-align: middle;
       padding: 3rem 5rem;
+
+        @include respond(phone) {
+          padding: 1rem 2rem;
+        }
     }
 
     &__text {
@@ -63,6 +67,13 @@
       -ms-hyphens: auto;
       -webkit-hyphens: auto;
       hyphens: auto;
+
+        @include respond(phone) {
+          font-size: 1.2rem;
+          column-count: unset;
+          column-gap: unset;
+          column-rule: unset;
+        }
     }
 
     &:target &__content {

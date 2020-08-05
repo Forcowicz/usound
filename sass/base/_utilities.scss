@@ -59,3 +59,12 @@
 .u-margin-top-xlg {
   margin-top: 16rem;
 }
+
+// Container
+
+   .container {
+       padding: 2rem;
+       border-radius: .3rem;
+       background-color: rgba($color-white, .85);
+       box-shadow: $default-shadow;
+   }

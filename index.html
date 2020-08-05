@@ -33,6 +33,7 @@
 </div>
 
 <div class="player__darkness"></div> <!-- Dark overlay -->
+
   <header class="header">
     <div class="header__logo-box">
       <img src="images/icons/logo.png" alt="uSound Logo" class="header__logo">
@@ -74,9 +75,9 @@
         </div>
         <div class="col-1-of-2">
           <div class="composition">
-            <img src="images/site/cover-photo-1.jpg" alt="Cover Photo 1" class="composition__photo composition__photo--p1">
-            <img src="images/site/cover-photo-2.jpg" alt="Cover Photo 2" class="composition__photo composition__photo--p2">
-            <img src="images/site/cover-photo-3.jpg" alt="Cover Photo 3" class="composition__photo composition__photo--p3">
+            <img srcset="images/site/cover-photo-1_low.png 385w, images/site/cover-photo-1.jpg 770w" sizes="(max-width: 900px) 16vw, 267px" alt="Cover Photo 1" class="composition__photo composition__photo--p1" src="images/site/cover-photo-1.jpg">
+            <img srcset="images/site/cover-photo-2_low.png 385w, images/site/cover-photo-2.jpg 770w" sizes="(max-width: 900px) 16vw, 267px" alt="Cover Photo 2" class="composition__photo composition__photo--p2" src="images/site/cover-photo-2.jpg">
+            <img srcset="images/site/cover-photo-3_low.png 385w, images/site/cover-photo-3.jpg 770w" sizes="(max-width: 900px) 16vw, 267px" alt="Cover Photo 3" class="composition__photo composition__photo--p3" src="images/site/cover-photo-3.jpg">
           </div>
         </div>
       </div>
@@ -372,7 +373,10 @@
 
 <footer class="footer">
   <div class="footer__logo-box">
-    <img src="images/icons/logo.png" alt="Logo" class="footer__logo">
+    <picture class="footer__logo">
+      <source srcset="images/icons/logo_low.png 1x, images/icons/logo.png 2x" media="(max-width: 37.5em)">
+      <img srcset="images/icons/logo_low.png 1x, images/icons/logo.png 2x" alt="Logo" class="footer__logo">
+    </picture>
   </div>
   <div class="row">
     <div class="col-1-of-2">

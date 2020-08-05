@@ -366,6 +366,7 @@ hr {
   font-size: 1.6rem;
   font-weight: 700;
   border: 0.3rem solid #55c57a;
+  backface-visibility: hidden;
   color: #55c57a;
   text-decoration: none;
   text-transform: uppercase;
@@ -395,6 +396,9 @@ hr {
 }
 .btn-square--rounded {
   border-radius: 0.5rem;
+}
+.btn-square--dark-hover:hover {
+  border-color: #27b485;
 }
 
 .btn-form {
@@ -705,6 +709,12 @@ hr {
   border-bottom: 3px solid #27b485;
   opacity: 1;
 }
+.popup:hover .btn-square {
+  color: #27b485;
+}
+.popup:hover .btn-square:hover {
+  color: #fff;
+}
 .popup__heading {
   display: inline-block;
   font-size: 2rem;
@@ -730,18 +740,6 @@ hr {
 }
 .popup__close:hover {
   color: #27b485;
-}
-.popup:hover .btn-square {
-  border: 3px solid #27b485;
-}
-.popup:hover .btn-square:link, .popup:hover .btn-square:visited {
-  color: #55c57a;
-  border: 3px solid #27b485;
-}
-.popup:hover .btn-square:hover {
-  color: #fff;
-  background-color: #27b485;
-  border: 3px solid #27b485;
 }
 
 .player {
@@ -1250,12 +1248,22 @@ hr {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.7), rgba(39, 180, 133, 0.7)), url(../images/site/concert-1.png);
+  background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.7), rgba(39, 180, 133, 0.7)), url(../images/site/concert-1_low.png);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 90vh, 0% 100%);
   border-radius: 2rem 2rem 0 0;
   position: relative;
+}
+@media (min-resolution: 192dpi) and (min-width: 600px) {
+  .header {
+    background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.7), rgba(39, 180, 133, 0.7)), url(../images/site/concert-1.png);
+  }
+}
+@media (min-width: 2000px) {
+  .header {
+    background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.7), rgba(39, 180, 133, 0.7)), url(../images/site/concert-1.png);
+  }
 }
 @media (max-width: 56.25em) {
   .header {
@@ -1517,7 +1525,7 @@ hr {
   width: 0;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -50rem;
   z-index: 201;
   opacity: 0;
   transition: all 0.5s;
@@ -1562,6 +1570,8 @@ hr {
 .navigation__checkbox:checked ~ .navigation__nav {
   opacity: 1;
   width: 100%;
+  top: 0;
+  left: 0;
 }
 .navigation__icon {
   position: relative;

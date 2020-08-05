@@ -83,6 +83,7 @@
   font-size: $default-font-size;
   font-weight: 700;
   border: .3rem solid $color-primary;
+  backface-visibility: hidden;
   color: $color-primary;
   text-decoration: none;
   text-transform: uppercase;
@@ -114,6 +115,12 @@
   }
     &--rounded {
       border-radius: .5rem;
+    }
+
+    &--dark-hover {
+      &:hover {
+        border-color: $color-primary-dark;
+      }
     }
 }
 

@@ -126,7 +126,7 @@ hr {
   display: block;
   margin: 2.5rem;
   height: 1px;
-  background-color: #eaeaea;
+  background-color: #D3D3D3;
   border: none;
 }
 
@@ -216,6 +216,17 @@ hr {
   font-size: 1rem;
   color: #777;
 }
+.caption--big {
+  font-size: 1.2rem;
+}
+
+.ordered-list {
+  color: inherit;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 2rem 0;
+}
 
 .u-center-text {
   text-align: center;
@@ -291,6 +302,13 @@ hr {
   margin-top: 16rem;
 }
 
+.container {
+  padding: 2rem;
+  border-radius: 0.3rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.25);
+}
+
 .btn {
   /* Domyślny wygląd linków */
 }
@@ -322,6 +340,13 @@ hr {
 }
 .btn--white::after {
   background-color: #fff;
+}
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
 }
 .btn::after {
   content: "";
@@ -620,7 +645,7 @@ hr {
   padding: 1rem;
 }
 .card__details ul li:not(:last-child) {
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid #D3D3D3;
 }
 .card__cta {
   position: absolute;
@@ -916,6 +941,9 @@ hr {
     text-align: center;
   }
 }
+.form__group {
+  position: relative;
+}
 .form__group:not(:last-child) {
   margin-bottom: 2rem;
 }
@@ -931,6 +959,7 @@ hr {
   width: 90%;
   display: block;
   transition: all 0.3s;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 @media (max-width: 56.25em) {
   .form__input {
@@ -944,6 +973,9 @@ hr {
 }
 .form__input:focus:invalid {
   border-bottom: 0.3rem solid #ff7730;
+}
+.form__input:invalid {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 .form__input::placeholder {
   color: #999;
@@ -1044,6 +1076,42 @@ hr {
   opacity: 0;
   transition: all 0.2s;
 }
+.form__text {
+  font-size: 1.6rem;
+}
+.form__select {
+  padding: 0.8rem 1.2rem;
+  background-color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: 1.6rem;
+  color: #55c57a;
+  border: 2px solid #55c57a;
+  border-radius: 0.3rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  appearance: none;
+  width: auto;
+  display: inline-block;
+}
+.form__select:focus {
+  outline: none;
+}
+.form__select:not(:last-child) {
+  margin-right: 1.5rem;
+}
+.form__select--max-width {
+  width: 100%;
+}
+.form__icon {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  transform: all 0.4s;
+}
+.form__icon:hover {
+  color: #55c57a;
+  cursor: pointer;
+}
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1;
 }
@@ -1143,7 +1211,7 @@ hr {
 }
 
 .section-about {
-  background-color: #eaeaea;
+  background-color: #D3D3D3;
   padding: 25rem 0;
   margin-top: -20vh;
 }
@@ -1170,7 +1238,7 @@ hr {
 }
 
 .section-plans {
-  background-color: #eaeaea;
+  background-color: #D3D3D3;
   padding: 25rem 0 15rem 0;
   margin-top: -20vh;
 }
@@ -1226,19 +1294,21 @@ hr {
   }
 }
 
-.section-login {
-  background-image: linear-gradient(to right top, rgba(126, 213, 111, 0.8), rgba(39, 180, 133, 0.8)), url("../images/concert.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  padding: 10rem 5rem;
-}
-
 .section-contact {
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(39, 180, 133, 0.85)), url("images/concert.jpg");
   padding: 10rem 5rem;
   width: 100%;
   height: 100%;
+}
+
+.section-register {
+  padding: 10rem 5rem;
+  background-image: linear-gradient(to bottom, rgba(126, 213, 111, 0.85), rgba(39, 180, 133, 0.85)), url("../images/site/concert-1.png");
+  background-size: cover;
+  height: auto;
+}
+.section-register .form__input {
+  width: 100%;
 }
 
 .fader {
@@ -1313,6 +1383,9 @@ hr {
   .row:not(:last-child) {
     margin-bottom: 6rem;
   }
+}
+.row--small-margin:not(:last-child) {
+  margin-bottom: 2rem;
 }
 .row--small-margin:not(:last-child) {
   margin-bottom: 2rem;
@@ -1402,7 +1475,7 @@ hr {
   background-color: #333;
   padding: 10rem 0;
   font-size: 1.4rem;
-  color: #eaeaea;
+  color: #D3D3D3;
 }
 @media (max-width: 56.25em) {
   .footer {
@@ -1443,7 +1516,7 @@ hr {
   margin-right: 1.5rem;
 }
 .footer__link:link, .footer__link:visited {
-  color: #eaeaea;
+  color: #D3D3D3;
   background-color: #333;
   text-decoration: none;
   text-transform: uppercase;

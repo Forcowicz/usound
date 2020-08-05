@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/usound-client.iml" filepath="$PROJECT_DIR$/.idea/usound-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../XAMPP/htdocs/usound-client/.idea/usound-client.iml" filepath="$PROJECT_DIR$/../../../../XAMPP/htdocs/usound-client/.idea/usound-client.iml" />
     </modules>
   </component>
 </project>

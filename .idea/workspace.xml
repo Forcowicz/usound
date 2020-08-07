@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0e07f531-035d-43be-a9c6-721c20fb4e79" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/images/background-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/includes/handlers/contact-handler.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sass/components/_blackout.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sass/components/_popup-login.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sass/pages/_login.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/forco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/classes/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/classes/Constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/classes/Constants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/handlers/login-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/handlers/login-handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/handlers/register-handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/handlers/register-handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/navigation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/components/_button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/components/_button.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/components/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/components/_form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/layout/_grid.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/layout/_grid.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sass/pages/_register.scss" beforeDir="false" afterPath="$PROJECT_DIR$/sass/pages/_register.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="XAMPP PHP" />
+  <component name="ProjectId" id="1fjrfqa0MC6QhSWI7GZsDw9Oz2E" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e07f531-035d-43be-a9c6-721c20fb4e79" name="Default Changelist" comment="" />
+      <created>1596742448450</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596742448450</updated>
+      <workItem from="1596742449509" duration="914000" />
+      <workItem from="1596743404086" duration="10474000" />
+      <workItem from="1596758743275" duration="47000" />
+      <workItem from="1596764188710" duration="3631000" />
+      <workItem from="1596812028253" duration="101000" />
+      <workItem from="1596812163859" duration="2968000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="420" y="160" key="#CLI_Interpreters" timestamp="1596742709485">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="420" y="160" key="#CLI_Interpreters/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596742709485" />
+    <state x="216" y="341" key="#SQL_Dialects" timestamp="1596744023484">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="216" y="341" key="#SQL_Dialects/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596744023484" />
+    <state x="432" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596744236448">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="432" y="163" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596744236448" />
+    <state x="509" y="283" width="665" height="658" key="EditFileWatcherDialog" timestamp="1596751009231">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="509" y="283" width="665" height="658" key="EditFileWatcherDialog/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596751009231" />
+    <state x="1016" y="301" key="FileChooserDialogImpl" timestamp="1596758797051">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="1016" y="301" key="FileChooserDialogImpl/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596758797051" />
+    <state width="196" height="539" key="HiddenNamespacesPopup" timestamp="1596744245919">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state width="196" height="539" key="HiddenNamespacesPopup/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596744245919" />
+    <state x="420" y="240" key="IDE.errors.dialog" timestamp="1596764465970">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="420" y="240" key="IDE.errors.dialog/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596764465970" />
+    <state x="674" y="424" key="NewPhpFileDialog" timestamp="1596752302310">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="674" y="424" key="NewPhpFileDialog/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596752302310" />
+    <state x="320" y="95" key="SettingsEditor" timestamp="1596812271492">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="320" y="95" key="SettingsEditor/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596812271492" />
+    <state x="657" y="415" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596745762040">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="657" y="415" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596745762040" />
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup" timestamp="1596814780282">
+      <screen x="0" y="0" width="1680" height="1010" />
+    </state>
+    <state x="503" y="217" width="672" height="678" key="search.everywhere.popup/0.0.1680.1010/1680.25.1280.984@0.0.1680.1010" timestamp="1596814780282" />
+  </component>
+</project>

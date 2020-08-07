@@ -1,28 +1,50 @@
-<?php
+<?php 
 
-  if (isset($_POST['register'])) {
-    $un = $_POST['registerUsername'];
-    $pw = $_POST['registerPassword'];
-    $pwv = $_POST['registerPasswordValidate'];
-    $em = $_POST['registerEmail'];
-    $emv = $_POST['registerEmailValidate'];
-    $fn = $_POST['registerFirstName'];
-    $ln = $_POST['registerLastName'];
+function sanitizeFormPassword($inputText) {
+	$inputText = strip_tags($inputText);
+	return $inputText;
+}
 
-      $un = sanitizeInputBasic($un);
-      $pw = sanitizeInputPassword($pw);
-      $pwv = sanitizeInputPassword($pwv);
-      $em = sanitizeInputBasic($em);
-      $emv = sanitizeInputBasic($emv);
-      $fn = sanitizeInputNames($fn);
-      $ln = sanitizeInputNames($ln);
+function sanitizeFormUsername($inputText) {
+	$inputText = strip_tags($inputText);
+	$inputText = str_replace(" ", "", $inputText);
+	return $inputText;
+}
 
-      $status = $account->register($un, $fn, $ln, $em, $emv, $pw, $pwv);
+function sanitizeFormString($inputText) {
+	$inputText = strip_tags($inputText);
+	$inputText = str_replace(" ", "", $inputText);
+	$inputText = ucfirst(strtolower($inputText));
+	return $inputText;
+}
 
-      if($status) {
-          header("Location: index.html");
-      } else {
-          echo "Something went wrong! Registration temporaly disabled!";
-      }
+function sanitizeFormEmail($input) {
+    $input = strip_tags($input);
+    $input = str_replace(" ", "", $input);
+    $input = strtolower($input);
+    return $input;
+}
 
-  }
+
+if(isset($_POST['registerSubmit'])) {
+	//Register button was pressed
+	$username = sanitizeFormUsername($_POST['registerUsername']);
+	$firstName = sanitizeFormString($_POST['registerFirstName']);
+	$lastName = sanitizeFormString($_POST['registerLastName']);
+	$gender = $_POST['registerGender'];
+	$birthDate = $_POST['registerBirthDate'];
+	$email = sanitizeFormEmail($_POST['registerEmail']);
+	$password = sanitizeFormPassword($_POST['registerPassword']);
+	$passwordValidate = sanitizeFormPassword($_POST['registerPasswordValidate']);
+
+	$status = $account->register($username, $firstName, $lastName, $gender, $birthDate, $email, $password, $passwordValidate);
+
+    if ($status === true) {
+        header("Location: index.html");
+
+    } else {
+        echo $status;
+    }
+
+
+}

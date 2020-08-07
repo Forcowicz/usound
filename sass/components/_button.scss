@@ -1,6 +1,17 @@
 @import "../abstracts/variables";
 
 .btn { /* Domyślny wygląd linków */
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .15s ease-in;
+  border: none;
+  outline: none;
+  position: relative;
+  font-size: $default-font-size;
+
   &:link, &:visited {
     text-transform: uppercase;
     text-decoration: none;
@@ -65,6 +76,7 @@
 
 .btn-text {
   display: inline-block;
+
     &:link, &:visited {
       font-size: $default-font-size;
       color: $color-primary;

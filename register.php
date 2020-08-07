@@ -1,5 +1,17 @@
 <?php
 ob_start();
+error_reporting(E_ALL);
+
+include("includes/config.php");
+include("includes/classes/Constants.php");
+include("includes/classes/Account.php");
+
+
+$account = new Account($con);
+
+include_once("includes/functions.php");
+include("includes/handlers/register-handler.php");
+include("includes/handlers/login-handler.php");
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -16,6 +28,37 @@ ob_start();
 </head>
 <body>
     <main>
+        <button class="btn-square popup-login__open" id="popup-login__open">Open</button>
+        <div class="blackout" id="modal">
+
+            <div class="popup-login" id="popup-login">
+                <i class="fas fa-2x fa-times popup-login__close" id="popup-login__close"></i>
+
+                <div class="popup-login__left">
+                    <form method="POST" action="includes/handlers/login-handler.php" class="form">
+                        <div class="form__group">
+                            <input type="text" id="loginUsername" name="loginUsername" placeholder="Wpisz swoją nazwę użytkownika" class="form__input">
+                            <label for="loginUsername" class="form__label">Wpisz swoją nazwę użytkownika</label>
+                        </div>
+                        <div class="form__group">
+                            <input type="password" id="loginPassword" name="loginPassword" placeholder="Wpisz swoje hasło" class="form__input">
+                            <label for="loginPassword" class="form__label">Wpisz swoje hasło</label>
+                            <a href="#" class="btn-text">Zaloguj &nbsp;<i class="fas fa-lg fa-long-arrow-alt-right"></i></a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="popup-login__right">
+                    <div class="pupup-login__logo-box">
+                        <img src="images/icons/logo.png" class="popup-login__logo" alt="Logo">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script src="js/modal.js" type="text/javascript"></script>
+
         <section class="section-register">
             <div class="row">
                 <div class="col-1-of-3 u-center-text container">
@@ -35,32 +78,38 @@ ob_start();
                     <div class="u-center-text">
                         <h2 class="heading-secondary heading-secondary-alternative u-margin-bottom-xs">Formularz</h2>
                     </div>
-                    <form action="register.php" class="form">
+                    <form action="register.php" class="form" method="POST">
                         <div class="form__group">
-                            <input type="text" id="username" class="form__input" minlength="3" maxlength="24" placeholder="Podaj wymarzoną nazwę użytkownika" required>
+                            <?php echo $account->getError(Constants::$usernameLength); ?>
+                            <?php echo $account->getError(Constants::$usernameTaken); ?>
+                            <input type="text" id="username" name="registerUsername" class="form__input" minlength="3" maxlength="24" placeholder="Podaj wymarzoną nazwę użytkownika" required>
                             <label for="username" class="form__label">Podaj wymarzoną nazwę użytkownika</label>
                         </div>
                         <div class="form__group">
-                            <input type="email" class="form__input" placeholder="Podaj swój adres e-mail" id="email" required>
+                            <?php echo $account->getError(Constants::$emailInvalid); ?>
+                            <?php echo $account->getError(Constants::$emailTaken); ?>
+                            <input type="email" class="form__input" name="registerEmail" placeholder="Podaj swój adres e-mail" id="email" required>
                             <label for="email" class="form__label">Podaj swój adres e-mail</label>
                         </div>
                         <div class="row row--small-margin">
                             <div class="col-1-of-2">
                                 <div class="form__group">
-                                    <input type="text" class="form__input" minlength="3" placeholder="Podaj swoje imię" id="firstName" required>
+                                    <?php echo $account->getError(Constants::$firstNameLength); ?>
+                                    <input type="text" class="form__input" name="registerFirstName" minlength="3" placeholder="Podaj swoje imię" id="firstName" required>
                                     <label for="firstName" class="form__label">Podaj swoje imię</label>
                                 </div>
                             </div>
                             <div class="col-1-of-2">
                                 <div class="form__group">
-                                    <input type="text" class="form__input" placeholder="Podaj swoje nazwisko" id="lastName" required>
+                                    <?php echo $account->getError(Constants::$lastNameLength); ?>
+                                    <input type="text" class="form__input" name="registerLastName" placeholder="Podaj swoje nazwisko" id="lastName" required>
                                     <label for="lastName" class="form__label">Podaj swoje nazwisko</label>
                                 </div>
                             </div>
                         </div>
                         <h3 class="heading-tertiary u-margin-bottom-xs">Podaj swoją płeć</h3>
                         <div class="form__radio-group u-margin-bottom-xs">
-                            <input type="radio" name="gender" id="male" class="form__radio-input">
+                            <input type="radio" value="male" name="registerGender" id="male" class="form__radio-input">
                             <label for="male" class="form__radio-label">
                                 <span class="form__radio-button"></span>
                                 Mężczyzna
@@ -68,7 +117,7 @@ ob_start();
                         </div>
                             <br>
                         <div class="form__radio-group u-margin-bottom-xs">
-                            <input type="radio" name="gender" id="female" class="form__radio-input">
+                            <input type="radio" value="female" name="registerGender" id="female" class="form__radio-input">
                             <label for="female" class="form__radio-label">
                                 <span class="form__radio-button"></span>
                                 Kobieta
@@ -76,7 +125,7 @@ ob_start();
                         </div>
                             <br>
                         <div class="form__radio-group u-margin-bottom-sm">
-                            <input type="radio" name="gender" id="unknown" class="form__radio-input">
+                            <input type="radio" value="unknown" name="registerGender" id="unknown" class="form__radio-input">
                             <label for="unknown" class="form__radio-label">
                                 <span class="form__radio-button"></span>
                                 Wolę nie podawać
@@ -85,63 +134,28 @@ ob_start();
                         <div class="row row--small-margin">
                             <div class="col-1-of-2">
                                     <div class="form__group">
+                                        <?php echo $account->getError(Constants::$passwordLength); ?>
+                                        <?php echo $account->getError(Constants::$passwordInvalid); ?>
                                         <i class="fas fa-2x fa-eye form__icon" id="showPassword1"></i>
-                                        <input type="password" minlength="8" maxlength="32" placeholder="Utwórz swoje hasło" id="password1" class="form__input">
-                                        <label for="password" class="form__label">Utwórz swoje hasło</label>
+                                        <input type="password" minlength="8" maxlength="32" placeholder="Utwórz swoje hasło" name="registerPassword" id="password1" class="form__input">
+                                        <label for="password1" class="form__label">Utwórz swoje hasło</label>
                                     </div>
                             </div>
                                 <div class="col-1-of-2">
                                     <div class="form__group">
+                                        <?php echo $account->getError(Constants::$passwordsNotMatch); ?>
                                         <i class="fas fa-2x fa-eye form__icon" id="showPassword2"></i>
-                                        <input type="password" minlength="8" maxlength="32" placeholder="Powtórz swoje hasło" id="password2"  class="form__input">
-                                        <label for="passwordValidate" class="form__label">Powtórz swoje hasło</label>
+                                        <input type="password" minlength="8" maxlength="32" placeholder="Powtórz swoje hasło" name="registerPasswordValidate" id="password2"  class="form__input">
+                                        <label for="password2" class="form__label">Powtórz swoje hasło</label>
                                     </div>
                                 </div>
                         </div>
                         <div class="form__group">
-                            <div class="row">
-                                <p class="form__text u-margin-bottom-xs">Podaj swoją datę urodzenia</p>
-                                <div class="col-1-of-3">
-                                    <select name="birthDay" id="birthDay" class="form__select form__select--max-width">
-                                        <option disabled selected>Dzień</option>
-                                        <?php
-                                            for($i = 1; $i <= 31; $i++) {
-                                                echo "<option value='$i'>$i</option>";
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="col-1-of-3">
-                                    <select name="birthMonth" id="birthMonth" class="form__select form__select--max-width">
-                                        <option disabled selected>Miesiąc</option>
-                                        <option value="1">Stycznia</option>
-                                        <option value="2">Lutego</option>
-                                        <option value="3">Marca</option>
-                                        <option value="4">Kwietnia</option>
-                                        <option value="5">Maja</option>
-                                        <option value="6">Czerwca</option>
-                                        <option value="7">Lipca</option>
-                                        <option value="8">Sierpnia</option>
-                                        <option value="9">Września</option>
-                                        <option value="10">Października</option>
-                                        <option value="11">Listopada</option>
-                                        <option value="12">Grudnia</option>
-                                    </select>
-                                </div>
-                                <div class="col-1-of-3">
-                                    <select name="birthYear" id="birthYear" class="form__select form__select--max-width">
-                                        <option disabled selected>Podaj swój rok urodzenia</option>
-                                        <?php
-                                        for($i = 2020; $i >= 1900; $i--) {
-                                            echo "<option value='$i'>$i</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
+                            <label for="birthDate" class="form__label form__label--date">Wprowadź swoją datę urodzenia</label>
+                            <input type="date" name="registerBirthDate" value="<?php echo date('Y-m-d'); ?>" min="1900-01-01" max="<?php echo date('Y-m-d'); ?>" id="birthDate" class="form__date u-margin-top-xs">
                         </div>
                         <div class="u-center-text u-margin-top-sm">
-                            <a href="#" class="btn btn--green">Wyślij formularz &nbsp; <i class="fas fa-lg fa-long-arrow-alt-right"></i></a><br>
+                            <button class="btn btn--green" name="registerSubmit">Wyślij formularz &nbsp; <i class="fas fa-lg fa-long-arrow-alt-right"></i></button><br>
                             <small class="caption u-margin-top-xs">Wysyłająć formularz, zgadzasz się na nasz regulamin oraz zobowiązujesz do jego przestrzegania.</small>
                         </div>
                     </form>

@@ -311,6 +311,16 @@ hr {
 
 .btn {
   /* Domyślny wygląd linków */
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all 0.15s ease-in;
+  border: none;
+  outline: none;
+  position: relative;
+  font-size: 1.6rem;
 }
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -1026,6 +1036,9 @@ hr {
   display: block;
   transition: all 0.3s;
 }
+.form__label--date {
+  margin: 0;
+}
 .form__input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
@@ -1106,11 +1119,26 @@ hr {
   position: absolute;
   top: 1.5rem;
   right: 2rem;
-  transform: all 0.4s;
+  transition: all 0.4s;
 }
 .form__icon:hover {
   color: #55c57a;
   cursor: pointer;
+}
+.form__date {
+  border: 0.2rem solid #55c57a;
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  color: inherit;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+.form__error {
+  position: absolute;
+  top: -2.2rem;
+  font-size: 1.2rem;
 }
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1;
@@ -1208,6 +1236,76 @@ hr {
 }
 .popup2__close:hover {
   color: #55c57a;
+}
+
+.blackout {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 400;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+}
+
+.popup-login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  z-index: 401;
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.25);
+  width: auto;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.75) 65%, transparent 65%), url("../images/background-1.png");
+  background-size: cover;
+  overflow: hidden;
+  display: table;
+}
+.popup-login__left {
+  padding: 5rem 5rem;
+  width: 75%;
+  display: table-cell;
+  vertical-align: middle;
+}
+.popup-login__right {
+  padding: 5rem 5rem;
+  width: 25%;
+  display: table-cell;
+  vertical-align: middle;
+}
+.popup-login__logo-box {
+  display: block;
+}
+.popup-login__logo {
+  display: block;
+  margin: 0 auto;
+  height: 20rem;
+  filter: drop-shadow(0 1rem 1.5rem rgba(0, 0, 0, 0.5));
+}
+.popup-login__close {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.6);
+  color: #D3D3D3;
+  transition: all 0.3s;
+}
+.popup-login__close:hover {
+  color: #55c57a;
+  cursor: pointer;
+}
+.popup-login__open {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
+  z-index: 399;
+}
+.popup-login .form__input {
+  width: 100%;
 }
 
 .section-about {
@@ -1311,6 +1409,19 @@ hr {
   width: 100%;
 }
 
+.section-login {
+  position: relative;
+}
+
+.section-login {
+  padding: 10rem 5rem;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(39, 180, 133, 0.85)), url("../images/site/concert-1.png");
+  background-size: cover;
+}
+.section-login .form__input {
+  width: 100%;
+}
+
 .fader {
   display: none;
   width: 100%;
@@ -1387,8 +1498,11 @@ hr {
 .row--small-margin:not(:last-child) {
   margin-bottom: 2rem;
 }
-.row--small-margin:not(:last-child) {
-  margin-bottom: 2rem;
+.row--background {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.row--padding {
+  padding: 2rem 5rem;
 }
 .row::after {
   content: "";

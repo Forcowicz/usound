@@ -1,0 +1,63 @@
+.popup-login {
+  @include centerElement;
+  background-color: $color-white;
+  z-index: 401;
+  box-shadow: $default-shadow;
+  width: auto;
+  border-radius: .5rem;
+  background-image:  linear-gradient(105deg, rgba($color-white, .75) 0%, rgba($color-white, .75) 65%, transparent 65%), url("../images/background-1.png");
+  background-size: cover;
+  overflow: hidden;
+  display: table;
+
+    &__left {
+      padding: 5rem 5rem;
+      width: 75%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    &__right {
+      padding: 5rem 5rem;
+      width: 25%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    &__logo-box {
+      display: block;
+    }
+
+    &__logo {
+      display: block;
+      margin: 0 auto;
+      height: 20rem;
+      filter: drop-shadow(0 1rem 1.5rem rgba($color-black, .5));
+    }
+
+    &__close {
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      text-shadow: 0 .25rem .5rem rgba($color-black, .6);
+      color: $color-grey-light;
+      transition: all .3s;
+
+        &:hover {
+          color: $color-primary;
+          cursor: pointer;
+        }
+    }
+
+    &__open {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      box-shadow: 0 .5rem 1rem rgba($color-black, .25);
+      z-index: 399;
+    }
+
+    .form__input {
+      width: 100%;
+    }
+}

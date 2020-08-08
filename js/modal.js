@@ -15,6 +15,7 @@ var close = document.getElementById('popup-login__close');
     window.onclick = function (event) {
         if(event.target === modal) {
             modal.style.display = 'none';
+            open.style.display = 'block';
         }
     }
 

@@ -88,6 +88,14 @@ hr {
     @include respond(phone) {
       font-size: 1.8rem;
     }
+
+    &--gradient {
+      background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 }
 
 .paragraph {

@@ -26,6 +26,7 @@
   &:hover {
     transform: translateY(-.3rem);
     box-shadow: 0 1rem 2rem rgba($color-black, .2);
+    cursor: pointer;
 
       &::after {
         transform: scaleX(1.2) scaleY(1.4);
@@ -76,6 +77,16 @@
 
 .btn-text {
   display: inline-block;
+  font-size: $default-font-size;
+  color: $color-primary;
+  text-decoration: none;
+  border-bottom: 1px solid $color-primary;
+  background-color: unset;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding: .5rem;
+  transition: all .2s;
 
     &:link, &:visited {
       font-size: $default-font-size;
@@ -88,9 +99,14 @@
 
     &:hover {
       background-color: $color-primary;
+      cursor: pointer;
       color: $color-white;
       box-shadow: 0 1rem 2rem rgba($color-black, .25);
       transform: translateY(-.2rem);
+    }
+
+    &:focus {
+      outline: none;
     }
 
     &:active {

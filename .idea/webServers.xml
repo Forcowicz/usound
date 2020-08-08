@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="6e983eb8-f272-4fdf-b89b-2bdd8abd2b18" name="XAMPP" url="http://localhost/usound-client">
-        <fileTransfer mountedRoot="H:\xampp" accessType="MOUNT" port="0" />
+      <webServer id="6e983eb8-f272-4fdf-b89b-2bdd8abd2b18" name="XAMPP" url="http://localhost/usound">
+        <fileTransfer mountedRoot="E:\xampp" accessType="MOUNT" port="0" />
       </webServer>
     </option>
   </component>

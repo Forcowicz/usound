@@ -19,7 +19,7 @@ const showWhere = document.querySelector('.player__show-where');
 const darkness = document.querySelector('.player__darkness')
 const play = document.querySelector('#music-player');
 const playButton = document.querySelector('.player__button');
-const icon = document.querySelector('#player__icon')
+const icon = document.querySelector('#player__icon');
 playButton.addEventListener('click', function() {
     showWhere.style.display = 'none';
     darkness.style.display = 'none';

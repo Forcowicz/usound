@@ -130,6 +130,11 @@
     cursor: pointer;
     position: relative;
     padding-left: 3.5rem;
+    transition: color .3s;
+
+      &:hover {
+        color: $color-primary-dark;
+      }
   }
 
   &__radio-button {
@@ -210,6 +215,16 @@
     color: inherit;
     padding: .5rem 1rem;
     display: inline-block;
+    transition: border-color .3s;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary-dark;
+      }
   }
 
   &__error {

@@ -12,6 +12,7 @@ $account = new Account($con);
 include_once("includes/functions.php");
 include("includes/handlers/register-handler.php");
 include("includes/handlers/login-handler.php");
+include("includes/handlers/logout-handler.php");
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -19,7 +20,7 @@ include("includes/handlers/login-handler.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | uSound</title>
+    <title>Rejestracja | uSound</title>
 
     <link rel="icon" href="images/icons/logo-black.png">
     <link rel="stylesheet" href="css/fontawesome/css/all.css">
@@ -28,36 +29,47 @@ include("includes/handlers/login-handler.php");
 </head>
 <body>
     <main>
-        <button class="btn-square popup-login__open" id="popup-login__open">Open</button>
-        <div class="blackout" id="modal">
+        <?php
+        if(!isset($_SESSION['userLoggedIn'])) {
+        ?>
+           <i class="fas fa-4x fa-user-circle popup-login__open-icon" id="popup-login__open"></i>
 
-            <div class="popup-login" id="popup-login">
-                <i class="fas fa-2x fa-times popup-login__close" id="popup-login__close"></i>
+            <div class="popup-login__caption">Zaloguj się</div>
+            <div class="blackout" id="modal">
 
-                <div class="popup-login__left">
-                    <form method="POST" action="includes/handlers/login-handler.php" class="form">
-                        <div class="form__group">
-                            <input type="text" id="loginUsername" name="loginUsername" placeholder="Wpisz swoją nazwę użytkownika" class="form__input">
-                            <label for="loginUsername" class="form__label">Wpisz swoją nazwę użytkownika</label>
-                        </div>
-                        <div class="form__group">
-                            <input type="password" id="loginPassword" name="loginPassword" placeholder="Wpisz swoje hasło" class="form__input">
-                            <label for="loginPassword" class="form__label">Wpisz swoje hasło</label>
-                            <a href="#" class="btn-text">Zaloguj &nbsp;<i class="fas fa-lg fa-long-arrow-alt-right"></i></a>
-                        </div>
-                    </form>
-                </div>
+                <div class="popup-login" id="popup-login">
+                    <i class="fas fa-2x fa-times-circle popup-login__close" id="popup-login__close"></i>
 
-                <div class="popup-login__right">
-                    <div class="pupup-login__logo-box">
-                        <img src="images/icons/logo.png" class="popup-login__logo" alt="Logo">
+                    <div class="popup-login__left">
+                        <h3 class="heading-tertiary heading-tertiary--gradient u-margin-bottom-xs">Zaloguj się</h3>
+                        <form method="POST" action="register.php" class="form">
+                            <?php echo $account->getError(Constants::$loginFail); ?>
+                            <div class="form__group">
+                                <input type="text" id="loginUsername" name="loginUsername" minlength="3" maxlength="24" placeholder="Wpisz swoją nazwę użytkownika" value="<?php getInputValue('loginUsername'); ?>" class="form__input">
+                                <label for="loginUsername" class="form__label">Wpisz swoją nazwę użytkownika</label>
+                            </div>
+                            <div class="form__group">
+                                <input type="password" id="loginPassword" name="loginPassword" minlength="3" maxlength="32" value="<?php getInputValue('loginPassword'); ?>" placeholder="Wpisz swoje hasło" class="form__input">
+                                <label for="loginPassword" class="form__label">Wpisz swoje hasło</label>
+                                <button class="btn-text u-margin-top-xs" name="loginSubmit">Zaloguj się &nbsp;<i class="fas fa-lg fa-long-arrow-alt-right"></i></button>
+                            </div>
+                        </form>
                     </div>
+
+                    <div class="popup-login__right">
+                        <div class="pupup-login__logo-box">
+                            <img src="images/icons/logo.png" class="popup-login__logo" alt="Logo">
+                        </div>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-        <script src="js/modal.js" type="text/javascript"></script>
+            <script src="js/modal.js" type="text/javascript"></script>
+
+        <?php } else {
+            echo "<a href='register.php?logout' class='popup-login__open-icon'><i class='fas fa-4x fa-times-circle'></i></a>";
+        } ?>
 
         <section class="section-register">
             <div class="row">
@@ -82,27 +94,27 @@ include("includes/handlers/login-handler.php");
                         <div class="form__group">
                             <?php echo $account->getError(Constants::$usernameLength); ?>
                             <?php echo $account->getError(Constants::$usernameTaken); ?>
-                            <input type="text" id="username" name="registerUsername" class="form__input" minlength="3" maxlength="24" placeholder="Podaj wymarzoną nazwę użytkownika" required>
+                            <input type="text" id="username" name="registerUsername" class="form__input" minlength="3" value="<?php getInputValue('registerUsername'); ?>" maxlength="24" placeholder="Podaj wymarzoną nazwę użytkownika" required>
                             <label for="username" class="form__label">Podaj wymarzoną nazwę użytkownika</label>
                         </div>
                         <div class="form__group">
                             <?php echo $account->getError(Constants::$emailInvalid); ?>
                             <?php echo $account->getError(Constants::$emailTaken); ?>
-                            <input type="email" class="form__input" name="registerEmail" placeholder="Podaj swój adres e-mail" id="email" required>
+                            <input type="email" class="form__input" name="registerEmail" value="<?php getInputValue('registerEmail'); ?>" placeholder="Podaj swój adres e-mail" id="email" required>
                             <label for="email" class="form__label">Podaj swój adres e-mail</label>
                         </div>
                         <div class="row row--small-margin">
                             <div class="col-1-of-2">
                                 <div class="form__group">
                                     <?php echo $account->getError(Constants::$firstNameLength); ?>
-                                    <input type="text" class="form__input" name="registerFirstName" minlength="3" placeholder="Podaj swoje imię" id="firstName" required>
+                                    <input type="text" class="form__input" name="registerFirstName" minlength="3" value="<?php getInputValue('registerFirstName'); ?>" placeholder="Podaj swoje imię" id="firstName" required>
                                     <label for="firstName" class="form__label">Podaj swoje imię</label>
                                 </div>
                             </div>
                             <div class="col-1-of-2">
                                 <div class="form__group">
                                     <?php echo $account->getError(Constants::$lastNameLength); ?>
-                                    <input type="text" class="form__input" name="registerLastName" placeholder="Podaj swoje nazwisko" id="lastName" required>
+                                    <input type="text" class="form__input" name="registerLastName" value="<?php getInputValue('registerLastName'); ?>" placeholder="Podaj swoje nazwisko" id="lastName" required>
                                     <label for="lastName" class="form__label">Podaj swoje nazwisko</label>
                                 </div>
                             </div>
@@ -150,13 +162,25 @@ include("includes/handlers/login-handler.php");
                                     </div>
                                 </div>
                         </div>
-                        <div class="form__group">
-                            <label for="birthDate" class="form__label form__label--date">Wprowadź swoją datę urodzenia</label>
-                            <input type="date" name="registerBirthDate" value="<?php echo date('Y-m-d'); ?>" min="1900-01-01" max="<?php echo date('Y-m-d'); ?>" id="birthDate" class="form__date u-margin-top-xs">
+                        <div class="row">
+                            <div class="col-1-of-2">
+                                <div class="form__group">
+                                    <label for="birthDate" class="form__label form__label--date">Wprowadź swoją datę urodzenia</label>
+                                    <input type="date" name="registerBirthDate" value="<?php echo date('Y-m-d'); ?>" min="1900-01-01" max="<?php echo date('Y-m-d'); ?>" id="birthDate" class="form__date u-margin-top-xs">
+                                </div>
+                            </div>
+                            <div class="col-1-of-2">
+                                <div class="form__group">
+                                    <label for="registerCode" class="form__label form__label--date">Jeżeli posiadasz kod specjalny, wpisz go tutaj</label>
+                                    <input type="text" name="registerCode" id="registerCode" placeholder="Wpisz kod specjalny" class="form__input u-margin-top-xs">
+                                    <label for="registerCode" class="form__label">Wpisz kod specjalny</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="u-center-text u-margin-top-sm">
-                            <button class="btn btn--green" name="registerSubmit">Wyślij formularz &nbsp; <i class="fas fa-lg fa-long-arrow-alt-right"></i></button><br>
-                            <small class="caption u-margin-top-xs">Wysyłająć formularz, zgadzasz się na nasz regulamin oraz zobowiązujesz do jego przestrzegania.</small>
+                            <button class="btn btn--green u-margin-bottom-sm" name="registerSubmit">Wyślij formularz &nbsp; <i class="fas fa-lg fa-long-arrow-alt-right"></i></button><br>
+                            <small class="caption u-margin-top-xs">Wysyłająć formularz, zgadzasz się na nasz regulamin oraz zobowiązujesz do jego przestrzegania.</small><br>
+                            <small class="caption u-margin-top-xs">Twoje dane są raczej bezpieczne.</small>
                         </div>
                     </form>
                 </div>

@@ -34,6 +34,10 @@
             }
         }
 
+        public function logout() {
+		    session_destroy();
+        }
+
 		public function getError($error) {
 			if(!in_array($error, $this->errorArray)) {
 				$error = "";

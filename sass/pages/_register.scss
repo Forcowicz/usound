@@ -10,5 +10,7 @@
 }
 
 .section-login {
-  position: relative;
+  .form__input {
+    background-color: $color-white;
+  }
 }

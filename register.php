@@ -26,54 +26,46 @@ include("includes/handlers/logout-handler.php");
     <link rel="stylesheet" href="css/fontawesome/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Varta:wght@300;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+<!--    <nav class="nav-short">-->
+<!--        <div class="nav-short__opener" id="nav-short-opener">-->
+<!--            <i class="fas fa-2x fa-chevron-right nav-short__icon" id="nav-short-icon"></i>-->
+<!--        </div>-->
+<!--        <div class="nav-short__container">-->
+<!---->
+<!--        </div>-->
+<!--    </nav>-->
+<!---->
+<!--    <script>-->
+<!--        var transformValue = "0rem";-->
+<!--        var transformSecondValue = "25%";-->
+<!--        var transformSecondValueBack = "-5.5rem";-->
+<!--        var rotateValue = "180deg"-->
+<!--        $("#nav-short-opener").click(function() {-->
+<!--           $("#nav-short-icon").removeClass("fa-chevron-right");-->
+<!--           $("#nav-short-icon").addClass("fa-chevron-left");-->
+<!--           $(this).attr("id", "nav-short-closer");-->
+<!--           $(".nav-short").css("transform", `translateX(${transformValue})`);-->
+<!---->
+<!--           // Close-->
+<!--            $("#nav-short-closer").click(function() {-->
+<!--                $("#nav-short-icon").removeClass("fa-chevron-left");-->
+<!--                $("#nav-short-icon").addClass("fa-chevron-right");-->
+<!--                $(this).attr("id", "nav-short-opener");-->
+<!--                $(".nav-short").css("transform", `translateX(${transformSecondValueBack})`);-->
+<!--            });-->
+<!--        });-->
+<!--    </script>-->
+
     <main>
-        <?php
-        if(!isset($_SESSION['userLoggedIn'])) {
-        ?>
-           <i class="fas fa-4x fa-user-circle popup-login__open-icon" id="popup-login__open"></i>
-
-            <div class="popup-login__caption">Zaloguj się</div>
-            <div class="blackout" id="modal">
-
-                <div class="popup-login" id="popup-login">
-                    <i class="fas fa-2x fa-times-circle popup-login__close" id="popup-login__close"></i>
-
-                    <div class="popup-login__left">
-                        <h3 class="heading-tertiary heading-tertiary--gradient u-margin-bottom-xs">Zaloguj się</h3>
-                        <form method="POST" action="register.php" class="form">
-                            <?php echo $account->getError(Constants::$loginFail); ?>
-                            <div class="form__group">
-                                <input type="text" id="loginUsername" name="loginUsername" minlength="3" maxlength="24" placeholder="Wpisz swoją nazwę użytkownika" value="<?php getInputValue('loginUsername'); ?>" class="form__input">
-                                <label for="loginUsername" class="form__label">Wpisz swoją nazwę użytkownika</label>
-                            </div>
-                            <div class="form__group">
-                                <input type="password" id="loginPassword" name="loginPassword" minlength="3" maxlength="32" value="<?php getInputValue('loginPassword'); ?>" placeholder="Wpisz swoje hasło" class="form__input">
-                                <label for="loginPassword" class="form__label">Wpisz swoje hasło</label>
-                                <button class="btn-text u-margin-top-xs" name="loginSubmit">Zaloguj się &nbsp;<i class="fas fa-lg fa-long-arrow-alt-right"></i></button>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="popup-login__right">
-                        <div class="pupup-login__logo-box">
-                            <img src="images/icons/logo.png" class="popup-login__logo" alt="Logo">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <script src="js/modal.js" type="text/javascript"></script>
-
-        <?php } else {
-            echo "<a href='register.php?logout' class='popup-login__open-icon'><i class='fas fa-4x fa-times-circle'></i></a>";
-        } ?>
+        <?php include("includes/navigation.php"); ?>
 
         <section class="section-register">
             <div class="row">
-                <div class="col-1-of-3 u-center-text container">
+                <div class="col-1-of-3 u-center-text container" id="infoBox">
                     <h2 class="heading-secondary">Rejestracja</h2>
                     <h3 class="heading-tertiary">Jak to zrobić?</h3>
                     <p class="form__text">Ze względów bezpieczeństwa oraz wczesnego dostępu, procedura rejestacji odbywa się ręcznie, oto kroki, jakie musisz podjąć:</p>
@@ -84,8 +76,29 @@ include("includes/handlers/logout-handler.php");
                         <li>Postępuj zgodnie z instrukcją</li>
                     </ol>
                     <p class="form__text">Administrator wyśle do Ciebie wiadomość e-mail z instrukcją w ciągu 24 godzin od wysłania formularza. Po pomyślnym przejściu weryfikacji, twoje konto zostanie utworzone. Nie będzie wymagana weryfikacja dokumentów. W razie problemów, skontaktuj się z nami poprzez formularz kontaktowy.</p>
-                    <a href="index.html#section-contact" class="btn-text u-margin-top-xs">Kontakt</a>
+                    <button class="btn-text u-margin-top-xs" id="hideInfoBox">Kontakt</button>
 				</div>
+
+                <div class="col-1-of-3 u-center-text container" id="contactBox">
+                    <div class="u-center-text u-margin-bottom-sm">
+                        <h2 class="heading-secondary heading-secondary--alternative">Kontakt</h2>
+                    </div>
+                    <p class="form__text">Aby skontakować się z nami, wyślij wiadomość na podany adres e-mail:</p>
+                    <div class="u-center-text u-margin-top-sm u-margin-bottom-sm">
+                        <p class="form__text"><b>forcowicz@gmail.com</b></p>
+                    </div>
+                    <p class="form__text">Pamiętaj, aby zamieścić poprawny temat wiadomości. Administrator skontaktuje się z Tobą w ciągu 48 godzin.</p>
+                    <button class="btn-text u-margin-top-xs" id="hideContactBox">Informacje</button>
+                </div>
+
+                <script src="js/register.js" type="text/javascript"></script>
+                <script>
+                    $(document).ready(function() {
+                        $("#infoBox").show();
+                        $("#contactBox").hide();
+                    });
+                </script>
+
                 <div class="col-2-of-3 container">
                     <div class="u-center-text">
                         <h2 class="heading-secondary heading-secondary-alternative u-margin-bottom-xs">Formularz</h2>

@@ -134,7 +134,8 @@
         color: $color-white;
   }
 
-  @include respond(tab-port) {
+  // @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) { // Kiedy używa się urządzenia z ekranem dotykowym
     height: auto;
     border-radius: .3rem;
     background-color: $color-white;

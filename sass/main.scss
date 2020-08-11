@@ -12,18 +12,23 @@
 @import "components/feature-box";
 @import "components/card";
 @import "components/popup";
-@import "components/player";
+@import "components/player-preview";
 @import "components/story";
 @import "components/bg-video";
 @import "components/form";
 @import "components/popup2";
 @import "components/blackout";
 @import "components/popup-login";
+@import "components/navigation-short";
 
 @import "pages/home";
 @import "pages/contact";
 @import "pages/register";
 @import "pages/login";
+
+@import "app/app";
+@import "app/player";
+@import "app/app-navigation";
 
 @import "layout/fader";
 @import "layout/header";

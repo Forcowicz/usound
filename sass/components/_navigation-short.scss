@@ -1,0 +1,38 @@
+.nav-short {
+  height: 12rem;
+  width: 6rem;
+  position: fixed;
+  top: 8rem;
+  left: -.5rem;
+  background-color: $color-grey-dark-3;
+  border-radius: .5rem;
+  padding: 1rem;
+  z-index: 400;
+  transform: translateX(-5.5rem);
+
+    &__container {
+      height: 100%;
+      width: 100%;
+      background-color: $color-white;
+    }
+
+    &__opener {
+      position: absolute;
+      top: 1rem;
+      left: 5rem;
+      width: 3rem;
+      height: 6rem;
+      border-radius: .5rem;
+      display: block;
+      z-index: 399;
+      background-color: $color-grey-dark-3;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-20%, -50%);
+      color: $color-white;
+    }
+}

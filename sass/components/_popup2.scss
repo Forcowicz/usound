@@ -10,6 +10,11 @@
   visibility: hidden;
   transition: all .5s ease-in;
 
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+}
+
   &:target { // Aplikuje na element, który jest aktualnie celem
     opacity: 1;
     visibility: visible;

@@ -9,11 +9,11 @@
    border-radius: 2rem 2rem 0 0;
    position: relative;
 
-    @media (min-resolution: 192dpi) and (min-width: 600px) {
+    @media only screen and (min-resolution: 192dpi) and (min-width: 600px) {
       background-image: linear-gradient(to right top,rgba($color-primary-light, 0.7), rgba($color-primary-dark, 0.7)), url(../images/site/concert-1.png);
     }
 
-    @media (min-width: 2000px) {
+    @media only screen and (min-width: 2000px) {
       background-image: linear-gradient(to right top,rgba($color-primary-light, 0.7), rgba($color-primary-dark, 0.7)), url(../images/site/concert-1.png);
     }
 
